@@ -382,23 +382,32 @@ document.write(`
 <p>If you want to read more about this approach, please check out <a class="reference external" href="https://docs.materialsproject.org/methodology/materials-methodology/elasticity">https://docs.materialsproject.org/methodology/materials-methodology/elasticity</a> and the following publication <a class="reference external" href="https://www.nature.com/articles/sdata20159">https://www.nature.com/articles/sdata20159</a>.</p>
 <section id="let-s-start-with-the-workflow">
 <h2>Let’s start with the workflow<a class="headerlink" href="#let-s-start-with-the-workflow" title="Permalink to this heading">#</a></h2>
-<p>We now simply load the force field elastic workflow. We change from the default universal ML potential to M3GNet. For CHGNet, an updated version of the ML potetial needs to be used: <a class="github reference external" href="https://github.com/CederGroupHub/chgnet/issues/79">CederGroupHub/chgnet#79</a></p>
+<p>We now simply load the force field elastic workflow. We change from the default universal ML potential to M3GNet. For CHGNet, an updated version of the ML potential needs to be used: <a class="github reference external" href="https://github.com/CederGroupHub/chgnet/issues/79">CederGroupHub/chgnet#79</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">run_locally</span>
 <span class="kn">from</span> <span class="nn">pymatgen.core</span> <span class="kn">import</span> <span class="n">Structure</span>
+<span class="kn">from</span> <span class="nn">pymatgen.symmetry.analyzer</span> <span class="kn">import</span> <span class="n">SpacegroupAnalyzer</span>
 
 <span class="kn">from</span> <span class="nn">atomate2.forcefields.flows.elastic</span> <span class="kn">import</span> <span class="n">ElasticMaker</span>
 <span class="kn">from</span> <span class="nn">atomate2.forcefields.jobs</span> <span class="kn">import</span> <span class="n">M3GNetRelaxMaker</span>
 
-<span class="n">struct</span> <span class="o">=</span> <span class="n">Structure</span><span class="p">(</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">Structure</span><span class="p">(</span>
     <span class="n">lattice</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.73</span><span class="p">,</span> <span class="mf">2.73</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.73</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.73</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.73</span><span class="p">,</span> <span class="mf">2.73</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
     <span class="n">species</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="s2">&quot;Si&quot;</span><span class="p">],</span>
     <span class="n">coords</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]],</span>
 <span class="p">)</span>
-<span class="n">elastic_flow</span> <span class="o">=</span> <span class="n">ElasticMaker</span><span class="p">(</span><span class="n">bulk_relax_maker</span><span class="o">=</span><span class="n">M3GNetRelaxMaker</span><span class="p">(</span><span class="n">relax_cell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">relax_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fmax&quot;</span><span class="p">:</span> <span class="mf">0.00001</span><span class="p">}),</span>
-                    <span class="n">elastic_relax_maker</span><span class="o">=</span><span class="n">M3GNetRelaxMaker</span><span class="p">(</span>
-                        <span class="n">relax_cell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">relax_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fmax&quot;</span><span class="p">:</span> <span class="mf">0.00001</span><span class="p">}))</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">struct</span><span class="p">)</span>
+
+<span class="n">structure</span><span class="o">=</span> <span class="n">SpacegroupAnalyzer</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span><span class="o">.</span><span class="n">get_primitive_standard_structure</span><span class="p">()</span>
+
+<span class="n">elastic_flow</span> <span class="o">=</span> <span class="n">ElasticMaker</span><span class="p">(</span>
+    <span class="n">bulk_relax_maker</span><span class="o">=</span><span class="n">M3GNetRelaxMaker</span><span class="p">(</span>
+        <span class="n">relax_cell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">relax_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fmax&quot;</span><span class="p">:</span> <span class="mf">0.00001</span><span class="p">}</span>
+    <span class="p">),</span>
+    <span class="n">elastic_relax_maker</span><span class="o">=</span><span class="n">M3GNetRelaxMaker</span><span class="p">(</span>
+        <span class="n">relax_cell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">relax_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fmax&quot;</span><span class="p">:</span> <span class="mf">0.00001</span><span class="p">}</span>
+    <span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -415,7 +424,7 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/251e0f352daa3078e71d97324a659bbd8763185ad096490cdb77b633a7116423.png" src="_images/251e0f352daa3078e71d97324a659bbd8763185ad096490cdb77b633a7116423.png" />
+<img alt="_images/d467fd40c51349d25d45f4bbe5d3cc782c70b7b3d58556f637777392ccbbd327.png" src="_images/d467fd40c51349d25d45f4bbe5d3cc782c70b7b3d58556f637777392ccbbd327.png" />
 </div>
 </div>
 </section>
@@ -423,10 +432,118 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 <h2>Let’s execute the workflow<a class="headerlink" href="#let-s-execute-the-workflow" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">run_locally</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">run_locally</span>
 
-<span class="n">responses</span> <span class="o">=</span> <span class="n">run_locally</span><span class="p">(</span><span class="n">elastic_flow</span><span class="p">,</span> <span class="n">ensure_success</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">create_folders</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">responses</span> <span class="o">=</span> <span class="n">run_locally</span><span class="p">(</span><span class="n">elastic_flow</span><span class="p">,</span>  <span class="n">create_folders</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:04:52,783 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:04:52,807 INFO Starting job - M3GNet relax (253a354a-e978-43c0-923b-1246f92948e0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:03,717 INFO Finished job - M3GNet relax (253a354a-e978-43c0-923b-1246f92948e0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:03,734 INFO Starting job - generate_elastic_deformations (c876529d-9fc6-408e-bfb7-a88d7d200fb6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:04,424 INFO Finished job - generate_elastic_deformations (c876529d-9fc6-408e-bfb7-a88d7d200fb6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:04,428 INFO Starting job - run_elastic_deformations (3cf2634b-0ab8-47bd-bd7f-c085a6d6d48f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{}
+{}
+2023-10-23 19:05:04,601 INFO Finished job - run_elastic_deformations (3cf2634b-0ab8-47bd-bd7f-c085a6d6d48f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:04,612 INFO Starting job - M3GNet relax 1/6 (623198c3-61be-417b-9b13-7649dd63d43a)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:04,975 INFO Finished job - M3GNet relax 1/6 (623198c3-61be-417b-9b13-7649dd63d43a)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:04,982 INFO Starting job - M3GNet relax 2/6 (d58ed00e-dee2-4aa0-aa69-92806f98b4cd)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:05,324 INFO Finished job - M3GNet relax 2/6 (d58ed00e-dee2-4aa0-aa69-92806f98b4cd)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:05,329 INFO Starting job - M3GNet relax 3/6 (ec94ace0-cd4d-44b6-908d-4f8b4f99735e)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:05,665 INFO Finished job - M3GNet relax 3/6 (ec94ace0-cd4d-44b6-908d-4f8b4f99735e)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:05,670 INFO Starting job - M3GNet relax 4/6 (50d59b55-b916-4905-b691-cbfd2cd601a8)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:06,005 INFO Finished job - M3GNet relax 4/6 (50d59b55-b916-4905-b691-cbfd2cd601a8)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:06,011 INFO Starting job - M3GNet relax 5/6 (26357858-30fe-4c68-84a5-a87c94d724db)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:13,426 INFO Finished job - M3GNet relax 5/6 (26357858-30fe-4c68-84a5-a87c94d724db)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:13,444 INFO Starting job - M3GNet relax 6/6 (80d78f7a-ad55-49cc-b670-ad817e1e881f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,358 INFO Finished job - M3GNet relax 6/6 (80d78f7a-ad55-49cc-b670-ad817e1e881f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,369 INFO Starting job - store_inputs (3cf2634b-0ab8-47bd-bd7f-c085a6d6d48f, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,373 INFO Finished job - store_inputs (3cf2634b-0ab8-47bd-bd7f-c085a6d6d48f, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,377 INFO Starting job - fit_elastic_tensor (4571316c-75eb-40ed-87af-aad376b1b660)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,934 INFO fit_elastic_tensor failed with exception:
+Traceback (most recent call last):
+  File &quot;/home/jgeorge/miniconda3/envs/PrepareADISWorkshop/lib/python3.10/site-packages/jobflow/managers/local.py&quot;, line 102, in _run_job
+    response = job.run(store=store)
+  File &quot;/home/jgeorge/miniconda3/envs/PrepareADISWorkshop/lib/python3.10/site-packages/jobflow/core/job.py&quot;, line 583, in run
+    response = function(*self.function_args, **self.function_kwargs)
+  File &quot;/hpc-user/jgeorge/PycharmProjects/PrepareADISWorkshop/atomate2/src/atomate2/common/jobs/elastic.py&quot;, line 220, in fit_elastic_tensor
+    return ElasticDocument.from_stresses(
+  File &quot;/hpc-user/jgeorge/PycharmProjects/PrepareADISWorkshop/atomate2/src/atomate2/common/schemas/elastic.py&quot;, line 220, in from_stresses
+    derived_properties = DerivedProperties(**property_dict)
+  File &quot;/home/jgeorge/miniconda3/envs/PrepareADISWorkshop/lib/python3.10/site-packages/pydantic/main.py&quot;, line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 7 validation errors for DerivedProperties
+trans_v
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.4/v/float_type
+long_v
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.4/v/float_type
+snyder_ac
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.4/v/float_type
+snyder_opt
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.4/v/float_type
+snyder_total
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.4/v/float_type
+cahill_thermalcond
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.4/v/float_type
+debye_temperature
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.4/v/float_type
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,935 INFO Finished executing jobs locally
 </pre></div>
 </div>
 </div>
@@ -449,6 +566,7 @@ As we currently don’t have a way to compute BORN charges with such potentials,
         <span class="s2">&quot;output.derived_properties&quot;</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">sort</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;completed_at&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="c1"># to get the latest computation</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -462,7 +580,7 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[53409.597541115356, 0.4230637114018307, 0.423063711496885, -8.086173976404036e-09, 1.60682617221681e-08, -4.703784736138521e-08], [0.4230637114018307, 53409.598702495394, 0.42306371610029875, -1.7850873555234916e-08, 7.278678203922471e-09, -0.0026899522068238708], [0.4230637114968849, 0.42306371610029864, 53409.59875671035, -0.0010208374582283426, 0.0009188952899752388, -2.132499114573247e-08], [-8.086173976413067e-09, -1.7850873556303934e-08, -0.0010208374582283417, 0.25544159910379394, -1.2882772996203086e-08, 4.394792745666041e-09], [1.606826172178908e-08, 7.2786782039207776e-09, 0.0009188952899752375, -1.2882772996203136e-08, 0.2554415963228315, -4.882350502292354e-09], [-4.7037847361772267e-08, -0.002689952206823871, -2.132499114572343e-08, 4.3947927456659615e-09, -4.882350502292405e-09, 0.2554415963128534]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[137.9323798710416, 108.55391971796415, 108.55392012177208, -4.5695166456233035e-08, -5.523558794033493e-07, 1.7030289102383204e-06], [108.55391971796415, 137.93239980948493, 108.55392796763137, -6.195183471739316e-08, -4.074132233397198e-07, 1.596095639781458e-06], [108.55392012177208, 108.5539279676314, 137.9324008356699, -5.8061871494217866e-08, -5.176734278261386e-07, 1.256140336409571e-06], [-4.569516645391779e-08, -6.195183471710404e-08, -5.8061871494489486e-08, 19.309754937637194, 2.2344435192030606e-07, -7.247134868582387e-08], [-5.523558794044879e-07, -4.074132233394308e-07, -5.176734278267169e-07, 2.234443519203083e-07, 19.30975354200256, -8.128338175589485e-09], [1.7030289102380303e-06, 1.5960956397823258e-06, 1.2561403364084115e-06, -7.247134868582273e-08, -8.128338175588074e-09, 19.309753470172556]]
 </pre></div>
 </div>
 </div>
@@ -475,7 +593,7 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;k_voigt&#39;: 17803.481486955458, &#39;k_reuss&#39;: 17803.481482987256, &#39;k_vrh&#39;: 17803.48148497136, &#39;g_voigt&#39;: 10681.988318903821, &#39;g_reuss&#39;: 0.42573328042687414, &#39;g_vrh&#39;: 5341.207026092124, &#39;universal_anisotropy&#39;: 125448.99678635913, &#39;homogeneous_poisson&#39;: 0.36363259011147425, &#39;y_mod&#39;: 14566887942623.213, &#39;trans_v&#39;: 48417.611694523606, &#39;long_v&#39;: 104592.85849062259, &#39;snyder_ac&#39;: 120997.41567617892, &#39;snyder_opt&#39;: 7.488634401939174, &#39;snyder_total&#39;: 121004.90431058085, &#39;clark_thermalcond&#39;: None, &#39;cahill_thermalcond&#39;: 14.985709255505961, &#39;debye_temperature&#39;: 5935.7006734981405}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;k_voigt&#39;: 118.34674623677019, &#39;k_reuss&#39;: 118.34674623676803, &#39;k_vrh&#39;: 118.3467462367691, &#39;g_voigt&#39;: 17.46154657055106, &#39;g_reuss&#39;: 17.151715963562555, &#39;g_vrh&#39;: 17.306631267056808, &#39;universal_anisotropy&#39;: 0.09032058589553849, &#39;homogeneous_poisson&#39;: 0.4302802064586621, &#39;y_mod&#39;: 49506664283.49989, &#39;trans_v&#39;: 2746.5430872791108, &#39;long_v&#39;: 7851.253942135118, &#39;snyder_ac&#39;: 56.10462917254751, &#39;snyder_opt&#39;: 0.20564232813609762, &#39;snyder_total&#39;: 56.31027150068361, &#39;clark_thermalcond&#39;: None, &#39;cahill_thermalcond&#39;: 0.9973763579066814, &#39;debye_temperature&#39;: 340.5643890428059}
 </pre></div>
 </div>
 </div>
