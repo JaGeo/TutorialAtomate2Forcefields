@@ -424,7 +424,7 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d467fd40c51349d25d45f4bbe5d3cc782c70b7b3d58556f637777392ccbbd327.png" src="_images/d467fd40c51349d25d45f4bbe5d3cc782c70b7b3d58556f637777392ccbbd327.png" />
+<img alt="_images/c5f81bc8618de1f2318621d161f2aa9cf4fb8d9b2c88997151779bdc24fa4d8b.png" src="_images/c5f81bc8618de1f2318621d161f2aa9cf4fb8d9b2c88997151779bdc24fa4d8b.png" />
 </div>
 </div>
 </section>
@@ -432,118 +432,10 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 <h2>Let’s execute the workflow<a class="headerlink" href="#let-s-execute-the-workflow" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">run_locally</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">run_locally</span>
 
 <span class="n">responses</span> <span class="o">=</span> <span class="n">run_locally</span><span class="p">(</span><span class="n">elastic_flow</span><span class="p">,</span>  <span class="n">create_folders</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:04:52,783 INFO Started executing jobs locally
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:04:52,807 INFO Starting job - M3GNet relax (253a354a-e978-43c0-923b-1246f92948e0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:03,717 INFO Finished job - M3GNet relax (253a354a-e978-43c0-923b-1246f92948e0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:03,734 INFO Starting job - generate_elastic_deformations (c876529d-9fc6-408e-bfb7-a88d7d200fb6)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:04,424 INFO Finished job - generate_elastic_deformations (c876529d-9fc6-408e-bfb7-a88d7d200fb6)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:04,428 INFO Starting job - run_elastic_deformations (3cf2634b-0ab8-47bd-bd7f-c085a6d6d48f)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{}
-{}
-2023-10-23 19:05:04,601 INFO Finished job - run_elastic_deformations (3cf2634b-0ab8-47bd-bd7f-c085a6d6d48f)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:04,612 INFO Starting job - M3GNet relax 1/6 (623198c3-61be-417b-9b13-7649dd63d43a)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:04,975 INFO Finished job - M3GNet relax 1/6 (623198c3-61be-417b-9b13-7649dd63d43a)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:04,982 INFO Starting job - M3GNet relax 2/6 (d58ed00e-dee2-4aa0-aa69-92806f98b4cd)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:05,324 INFO Finished job - M3GNet relax 2/6 (d58ed00e-dee2-4aa0-aa69-92806f98b4cd)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:05,329 INFO Starting job - M3GNet relax 3/6 (ec94ace0-cd4d-44b6-908d-4f8b4f99735e)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:05,665 INFO Finished job - M3GNet relax 3/6 (ec94ace0-cd4d-44b6-908d-4f8b4f99735e)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:05,670 INFO Starting job - M3GNet relax 4/6 (50d59b55-b916-4905-b691-cbfd2cd601a8)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:06,005 INFO Finished job - M3GNet relax 4/6 (50d59b55-b916-4905-b691-cbfd2cd601a8)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:06,011 INFO Starting job - M3GNet relax 5/6 (26357858-30fe-4c68-84a5-a87c94d724db)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:13,426 INFO Finished job - M3GNet relax 5/6 (26357858-30fe-4c68-84a5-a87c94d724db)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:13,444 INFO Starting job - M3GNet relax 6/6 (80d78f7a-ad55-49cc-b670-ad817e1e881f)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,358 INFO Finished job - M3GNet relax 6/6 (80d78f7a-ad55-49cc-b670-ad817e1e881f)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,369 INFO Starting job - store_inputs (3cf2634b-0ab8-47bd-bd7f-c085a6d6d48f, 2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,373 INFO Finished job - store_inputs (3cf2634b-0ab8-47bd-bd7f-c085a6d6d48f, 2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,377 INFO Starting job - fit_elastic_tensor (4571316c-75eb-40ed-87af-aad376b1b660)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,934 INFO fit_elastic_tensor failed with exception:
-Traceback (most recent call last):
-  File &quot;/home/jgeorge/miniconda3/envs/PrepareADISWorkshop/lib/python3.10/site-packages/jobflow/managers/local.py&quot;, line 102, in _run_job
-    response = job.run(store=store)
-  File &quot;/home/jgeorge/miniconda3/envs/PrepareADISWorkshop/lib/python3.10/site-packages/jobflow/core/job.py&quot;, line 583, in run
-    response = function(*self.function_args, **self.function_kwargs)
-  File &quot;/hpc-user/jgeorge/PycharmProjects/PrepareADISWorkshop/atomate2/src/atomate2/common/jobs/elastic.py&quot;, line 220, in fit_elastic_tensor
-    return ElasticDocument.from_stresses(
-  File &quot;/hpc-user/jgeorge/PycharmProjects/PrepareADISWorkshop/atomate2/src/atomate2/common/schemas/elastic.py&quot;, line 220, in from_stresses
-    derived_properties = DerivedProperties(**property_dict)
-  File &quot;/home/jgeorge/miniconda3/envs/PrepareADISWorkshop/lib/python3.10/site-packages/pydantic/main.py&quot;, line 164, in __init__
-    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
-pydantic_core._pydantic_core.ValidationError: 7 validation errors for DerivedProperties
-trans_v
-  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
-    For further information visit https://errors.pydantic.dev/2.4/v/float_type
-long_v
-  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
-    For further information visit https://errors.pydantic.dev/2.4/v/float_type
-snyder_ac
-  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
-    For further information visit https://errors.pydantic.dev/2.4/v/float_type
-snyder_opt
-  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
-    For further information visit https://errors.pydantic.dev/2.4/v/float_type
-snyder_total
-  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
-    For further information visit https://errors.pydantic.dev/2.4/v/float_type
-cahill_thermalcond
-  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
-    For further information visit https://errors.pydantic.dev/2.4/v/float_type
-debye_temperature
-  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
-    For further information visit https://errors.pydantic.dev/2.4/v/float_type
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-23 19:05:21,935 INFO Finished executing jobs locally
 </pre></div>
 </div>
 </div>
