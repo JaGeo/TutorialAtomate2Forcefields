@@ -380,13 +380,21 @@ document.write(`
 <h1>Elastic workflow<a class="headerlink" href="#elastic-workflow" title="Permalink to this heading">#</a></h1>
 <p>This is a elastic workflow that is based on a stress-strain approach.</p>
 <p>If you want to read more about this approach, please check out <a class="reference external" href="https://docs.materialsproject.org/methodology/materials-methodology/elasticity">https://docs.materialsproject.org/methodology/materials-methodology/elasticity</a> and the following publication <a class="reference external" href="https://www.nature.com/articles/sdata20159">https://www.nature.com/articles/sdata20159</a>.</p>
+<p>Let’s install atomate2 first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> %%capture
+ !pip install git+https://github.com/materialsproject/atomate2.git@main[strict]
+</pre></div>
+</div>
+</div>
+</div>
 <section id="let-s-start-with-the-workflow">
 <h2>Let’s start with the workflow<a class="headerlink" href="#let-s-start-with-the-workflow" title="Permalink to this heading">#</a></h2>
 <p>We now simply load the force field elastic workflow. We change from the default universal ML potential to M3GNet. For CHGNet, an updated version of the ML potential needs to be used: <a class="github reference external" href="https://github.com/CederGroupHub/chgnet/issues/79">CederGroupHub/chgnet#79</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">run_locally</span>
-<span class="kn">from</span> <span class="nn">pymatgen.core</span> <span class="kn">import</span> <span class="n">Structure</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymatgen.core</span> <span class="kn">import</span> <span class="n">Structure</span>
 <span class="kn">from</span> <span class="nn">pymatgen.symmetry.analyzer</span> <span class="kn">import</span> <span class="n">SpacegroupAnalyzer</span>
 
 <span class="kn">from</span> <span class="nn">atomate2.forcefields.flows.elastic</span> <span class="kn">import</span> <span class="n">ElasticMaker</span>
@@ -424,7 +432,7 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c5f81bc8618de1f2318621d161f2aa9cf4fb8d9b2c88997151779bdc24fa4d8b.png" src="_images/c5f81bc8618de1f2318621d161f2aa9cf4fb8d9b2c88997151779bdc24fa4d8b.png" />
+<img alt="_images/251e0f352daa3078e71d97324a659bbd8763185ad096490cdb77b633a7116423.png" src="_images/251e0f352daa3078e71d97324a659bbd8763185ad096490cdb77b633a7116423.png" />
 </div>
 </div>
 </section>

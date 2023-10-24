@@ -384,6 +384,15 @@ document.write(`
 <h1>Phonon workflow<a class="headerlink" href="#phonon-workflow" title="Permalink to this heading">#</a></h1>
 <p>This is the phonon workflow that is based on the finite displacement approach as implemented in <a class="reference external" href="https://phonopy.github.io/phonopy/">Phonopy</a>.</p>
 <p>If you want to read more about Phonopy, please read Togo’s paper: <a class="reference external" href="https://doi.org/10.7566/JPSJ.92.012001">https://doi.org/10.7566/JPSJ.92.012001</a></p>
+<p>Let’s install atomate2 first:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> %%capture
+ !pip install git+https://github.com/materialsproject/atomate2.git@main[strict]
+</pre></div>
+</div>
+</div>
+</div>
 <section id="let-s-start-with-the-workflow">
 <h2>Let’s start with the workflow<a class="headerlink" href="#let-s-start-with-the-workflow" title="Permalink to this heading">#</a></h2>
 <p>We now simply load the force field phonon workflow. It uses CHGNet as a universal ML potential by default.</p>
@@ -555,8 +564,8 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;$\\mathrm{Wave\\ Vector}$&#39;, ylabel=&#39;$\\mathrm{Frequencies\\ (THz)}$&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/099a163cc2f301ba80df2c9ca6dd07025721a05eedade187fda00582a6a01b81.png" src="_images/099a163cc2f301ba80df2c9ca6dd07025721a05eedade187fda00582a6a01b81.png" />
-<img alt="_images/c77906735b6b4e40de97dcc21fa166e1fa0e07642ec17165b8d3b1b33d60fbfa.png" src="_images/c77906735b6b4e40de97dcc21fa166e1fa0e07642ec17165b8d3b1b33d60fbfa.png" />
+<img alt="_images/cfabdab046510d066f02e3ae90d300e5b155ddeed5f74c80dfbd4dbd9d472218.png" src="_images/cfabdab046510d066f02e3ae90d300e5b155ddeed5f74c80dfbd4dbd9d472218.png" />
+<img alt="_images/e10d0763fc35ab8ca4168c2e62871028c33f1116c789aea7307e879f0badc563.png" src="_images/e10d0763fc35ab8ca4168c2e62871028c33f1116c789aea7307e879f0badc563.png" />
 </div>
 </div>
 </section>
