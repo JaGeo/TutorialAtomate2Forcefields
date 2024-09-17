@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Phonon workflow &#8212; Atomate2 Workflow Tutorial</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'phonon';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,28 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -119,12 +109,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -139,9 +137,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -151,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Atomate2 Workflow Tutorial - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Atomate2 Workflow Tutorial - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -184,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -193,14 +206,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -322,26 +335,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -378,23 +393,23 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="phonon-workflow">
-<h1>Phonon workflow<a class="headerlink" href="#phonon-workflow" title="Permalink to this heading">#</a></h1>
+<h1>Phonon workflow<a class="headerlink" href="#phonon-workflow" title="Link to this heading">#</a></h1>
 <p>This is the phonon workflow that is based on the finite displacement approach as implemented in <a class="reference external" href="https://phonopy.github.io/phonopy/">Phonopy</a>.</p>
 <p>If you want to read more about Phonopy, please read Togo’s paper: <a class="reference external" href="https://doi.org/10.7566/JPSJ.92.012001">https://doi.org/10.7566/JPSJ.92.012001</a></p>
 <p>Let’s install atomate2 first:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> %%capture
- !pip install git+https://github.com/materialsproject/atomate2.git@main[strict]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="o">%%capture</span>
+ <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">atomate2</span><span class="p">[</span><span class="n">strict</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="let-s-start-with-the-workflow">
-<h2>Let’s start with the workflow<a class="headerlink" href="#let-s-start-with-the-workflow" title="Permalink to this heading">#</a></h2>
+<h2>Let’s start with the workflow<a class="headerlink" href="#let-s-start-with-the-workflow" title="Link to this heading">#</a></h2>
 <p>We now simply load the force field phonon workflow. It uses CHGNet as a universal ML potential by default.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -410,10 +425,16 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jgeorge/miniconda3/envs/pythonProject1/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="let-s-have-a-look-at-the-computing-jobs">
-<h2>Let’s have a look at the computing jobs<a class="headerlink" href="#let-s-have-a-look-at-the-computing-jobs" title="Permalink to this heading">#</a></h2>
+<h2>Let’s have a look at the computing jobs<a class="headerlink" href="#let-s-have-a-look-at-the-computing-jobs" title="Link to this heading">#</a></h2>
 <p>The phonon run will first perform a bulk relaxation, then the displacements are generated and run.
 As we currently don’t have a way to compute BORN charges with such potentials, a non-analytical term correction is not performed here.</p>
 <div class="cell docutils container">
@@ -423,12 +444,12 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7ed9c64d0c4520ce7dafd4cd05a34250433eab48c6c7b946387736dae3980fa5.png" src="_images/7ed9c64d0c4520ce7dafd4cd05a34250433eab48c6c7b946387736dae3980fa5.png" />
+<img alt="_images/44fe8442a6a7a64075f6282985aa04e9f9702b47e5f812e115a18605cc78e1de.png" src="_images/44fe8442a6a7a64075f6282985aa04e9f9702b47e5f812e115a18605cc78e1de.png" />
 </div>
 </div>
 </section>
 <section id="let-s-execute-the-workflow">
-<h2>Let’s execute the workflow<a class="headerlink" href="#let-s-execute-the-workflow" title="Permalink to this heading">#</a></h2>
+<h2>Let’s execute the workflow<a class="headerlink" href="#let-s-execute-the-workflow" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
@@ -441,7 +462,7 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 </div>
 </section>
 <section id="let-s-have-a-look-at-the-outputs">
-<h2>Let’s have a look at the outputs<a class="headerlink" href="#let-s-have-a-look-at-the-outputs" title="Permalink to this heading">#</a></h2>
+<h2>Let’s have a look at the outputs<a class="headerlink" href="#let-s-have-a-look-at-the-outputs" title="Link to this heading">#</a></h2>
 <p>We query our database for the relevant outputs (here DOS and band structure)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -487,13 +508,13 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;$\\mathrm{Wave\\ Vector}$&#39;, ylabel=&#39;$\\mathrm{Frequencies\\ (THz)}$&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/384e013c0a74bf207b2da5cee063ee49404933b63664ce0b25dc55ff34efd6a2.png" src="_images/384e013c0a74bf207b2da5cee063ee49404933b63664ce0b25dc55ff34efd6a2.png" />
-<img alt="_images/5a893cad14c1c6c749b6ddc36b0bcb1ea5f7636668c04f25840d3601731b3d21.png" src="_images/5a893cad14c1c6c749b6ddc36b0bcb1ea5f7636668c04f25840d3601731b3d21.png" />
+<img alt="_images/1fff39f359e80d765350bec6f601e5f4db238dacbb31821181dcc61e7ca84f4b.png" src="_images/1fff39f359e80d765350bec6f601e5f4db238dacbb31821181dcc61e7ca84f4b.png" />
+<img alt="_images/74218657ddb698c606d0c6c9eaf718ebd53c528084942ebc471ef7509d9429b2.png" src="_images/74218657ddb698c606d0c6c9eaf718ebd53c528084942ebc471ef7509d9429b2.png" />
 </div>
 </div>
 </section>
 <section id="change-the-force-field">
-<h2>Change the force field<a class="headerlink" href="#change-the-force-field" title="Permalink to this heading">#</a></h2>
+<h2>Change the force field<a class="headerlink" href="#change-the-force-field" title="Link to this heading">#</a></h2>
 <p>Are you now interested in how M3GNet performs?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -564,18 +585,18 @@ As we currently don’t have a way to compute BORN charges with such potentials,
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;$\\mathrm{Wave\\ Vector}$&#39;, ylabel=&#39;$\\mathrm{Frequencies\\ (THz)}$&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/cfabdab046510d066f02e3ae90d300e5b155ddeed5f74c80dfbd4dbd9d472218.png" src="_images/cfabdab046510d066f02e3ae90d300e5b155ddeed5f74c80dfbd4dbd9d472218.png" />
-<img alt="_images/e10d0763fc35ab8ca4168c2e62871028c33f1116c789aea7307e879f0badc563.png" src="_images/e10d0763fc35ab8ca4168c2e62871028c33f1116c789aea7307e879f0badc563.png" />
+<img alt="_images/e59c8414a21243d9433ee013edf86d2e1da63b4f35077519c65f58db37d9f149.png" src="_images/e59c8414a21243d9433ee013edf86d2e1da63b4f35077519c65f58db37d9f149.png" />
+<img alt="_images/cd230ed20f0123c6b0c83c184019747e351d48566641b5f2d3b8108a7d7b71cd.png" src="_images/cd230ed20f0123c6b0c83c184019747e351d48566641b5f2d3b8108a7d7b71cd.png" />
 </div>
 </div>
 </section>
 <section id="note-on-levels-of-theory">
-<h2>Note on levels of theory<a class="headerlink" href="#note-on-levels-of-theory" title="Permalink to this heading">#</a></h2>
+<h2>Note on levels of theory<a class="headerlink" href="#note-on-levels-of-theory" title="Link to this heading">#</a></h2>
 <p>While the results for Si look very promising, you might need to carefully check for other materials.</p>
 <p>We also have GAP interface, that you might want to try.</p>
 </section>
 <section id="dft">
-<h2>DFT?<a class="headerlink" href="#dft" title="Permalink to this heading">#</a></h2>
+<h2>DFT?<a class="headerlink" href="#dft" title="Link to this heading">#</a></h2>
 <p>The same workflow can also be executed with DFT. Currently, a VASP interface exits. More interfaces are under development.</p>
 </section>
 </section>
@@ -607,8 +628,8 @@ As we currently don’t have a way to compute BORN charges with such potentials,
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="intro.html"
@@ -636,6 +657,7 @@ As we currently don’t have a way to compute BORN charges with such potentials,
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -671,9 +693,10 @@ By J. George, A. Naik
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -697,8 +720,8 @@ By J. George, A. Naik
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
